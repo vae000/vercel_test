@@ -31,13 +31,13 @@ export default function Home() {
 
     if (!response.ok) {
       setState("error");
-      setMessage(payload.message ?? "Something went wrong.");
+      setMessage(payload.message ?? "提交失败，请稍后重试。");
       return;
     }
 
     form.reset();
     setState("success");
-    setMessage(payload.message ?? "You are on the list.");
+    setMessage(payload.message ?? "已加入名单。");
   }
 
   return (
@@ -45,36 +45,36 @@ export default function Home() {
       <section className="hero">
         <div className="hero__copy">
           <p className="eyebrow">Vercel + Next.js + Supabase</p>
-          <h1>Launch Notes</h1>
+          <h1>上线笔记</h1>
           <p className="lead">
-            A small landing page that captures early-access signups and stores
-            them in Supabase through a Next.js API route.
+            一个最小可用的落地页示例：通过 Next.js API 收集预约信息，
+            并写入 Supabase 数据表。
           </p>
-          <div className="metrics" aria-label="Product metrics">
+          <div className="metrics" aria-label="产品能力">
             <span>Serverless API</span>
-            <span>Supabase Postgres</span>
-            <span>Vercel deploy ready</span>
+            <span>Supabase 数据库</span>
+            <span>Vercel 一键部署</span>
           </div>
         </div>
 
         <form className="signup" onSubmit={onSubmit}>
-          <h2>Join the waitlist</h2>
+          <h2>加入预约名单</h2>
           <label>
-            Name
-            <input name="name" autoComplete="name" placeholder="Ada Lovelace" />
+            姓名
+            <input name="name" autoComplete="name" placeholder="张三" />
           </label>
           <label>
-            Email
+            邮箱
             <input
               name="email"
               type="email"
               autoComplete="email"
-              placeholder="ada@example.com"
+              placeholder="name@example.com"
               required
             />
           </label>
           <button type="submit" disabled={state === "loading"}>
-            {state === "loading" ? "Submitting..." : "Request access"}
+            {state === "loading" ? "提交中..." : "申请体验"}
           </button>
           {message ? (
             <p className={state === "error" ? "status status--error" : "status"}>

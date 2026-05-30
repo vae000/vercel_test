@@ -28,7 +28,7 @@ export async function POST(request: Request) {
 
   if (!email || !email.includes("@")) {
     return NextResponse.json(
-      { message: "Enter a valid email address." },
+      { message: "请输入有效的邮箱地址。" },
       { status: 400 }
     );
   }
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
 
   if (!supabase) {
     return NextResponse.json(
-      { message: "Supabase environment variables are not configured." },
+      { message: "Supabase 环境变量尚未配置。" },
       { status: 503 }
     );
   }
@@ -52,12 +52,12 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         message: duplicateEmail
-          ? "This email is already on the list."
-          : "Could not save your signup."
+          ? "这个邮箱已经在名单中。"
+          : "暂时无法保存预约信息。"
       },
       { status: duplicateEmail ? 409 : 500 }
     );
   }
 
-  return NextResponse.json({ message: "You are on the list." });
+  return NextResponse.json({ message: "已加入预约名单。" });
 }
