@@ -44,27 +44,31 @@ export default function Home() {
     <main>
       <section className="hero">
         <div className="hero__copy">
-          <p className="eyebrow">Vercel + Next.js + Supabase</p>
-          <h1>上线笔记</h1>
+          <p className="eyebrow">AI Agent 落地咨询</p>
+          <h1>把 Agent 用到真实业务里</h1>
           <p className="lead">
-            一个最小可用的落地页示例：通过 Next.js API 收集预约信息，
-            并写入 Supabase 数据表。
+            面向销售、客服、运营和内部流程，帮你找到最适合落地的
+            Agent 场景，做出可验证的试点方案。
           </p>
           <div className="metrics" aria-label="产品能力">
-            <span>Serverless API</span>
-            <span>Supabase 数据库</span>
-            <span>Vercel 一键部署</span>
+            <span>场景诊断</span>
+            <span>自动化流程设计</span>
+            <span>试点交付</span>
           </div>
         </div>
 
         <form className="signup" onSubmit={onSubmit}>
-          <h2>加入预约名单</h2>
+          <h2>获取 Agent 落地方案</h2>
           <label>
-            姓名
-            <input name="name" autoComplete="name" placeholder="张三" />
+            姓名 / 公司
+            <input
+              name="name"
+              autoComplete="organization"
+              placeholder="张三 / 某某科技"
+            />
           </label>
           <label>
-            邮箱
+            联系邮箱
             <input
               name="email"
               type="email"
@@ -74,7 +78,7 @@ export default function Home() {
             />
           </label>
           <button type="submit" disabled={state === "loading"}>
-            {state === "loading" ? "提交中..." : "申请体验"}
+            {state === "loading" ? "提交中..." : "预约沟通"}
           </button>
           {message ? (
             <p className={state === "error" ? "status status--error" : "status"}>

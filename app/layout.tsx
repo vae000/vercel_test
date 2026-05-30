@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "上线笔记",
-  description: "一个最小可用的 Vercel + Next.js + Supabase 落地页示例。"
+  title: "AI Agent 落地咨询",
+  description: "面向企业客户的 AI Agent 场景诊断、流程自动化和试点交付服务。"
 };
 
 export default function RootLayout({
