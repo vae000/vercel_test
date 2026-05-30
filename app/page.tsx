@@ -45,10 +45,13 @@ export default function Home() {
       <section className="hero">
         <div className="hero__copy">
           <p className="eyebrow">AI Agent 落地咨询</p>
-          <h1>把 Agent 用到真实业务里</h1>
+          <h1>
+            用 AI Agent
+            <span>获取更多客户</span>
+          </h1>
           <p className="lead">
-            面向销售、客服、运营和内部流程，帮你找到最适合落地的
-            Agent 场景，做出可验证的试点方案。
+            从线索获取、客户跟进到售前答疑，帮你把 Agent 接入真实业务流程，
+            做出可验证的增长试点。
           </p>
           <div className="metrics" aria-label="产品能力">
             <span>场景诊断</span>

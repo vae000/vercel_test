@@ -63,10 +63,17 @@ p {
 }
 
 h1 {
-  margin-bottom: 22px;
-  font-size: clamp(3.2rem, 9vw, 7.6rem);
-  line-height: 0.92;
+  max-width: 720px;
+  margin-bottom: 24px;
+  font-size: clamp(3rem, 6.8vw, 5.8rem);
+  line-height: 1.06;
   letter-spacing: 0;
+  text-wrap: balance;
+}
+
+h1 span {
+  display: block;
+  color: var(--accent-dark);
 }
 
 h2 {
