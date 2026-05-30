@@ -7,5 +7,16 @@ create table if not exists public.landing_leads (
 
 alter table public.landing_leads enable row level security;
 
--- Inserts are performed from the Next.js API route with SUPABASE_SERVICE_ROLE_KEY.
--- Keep browser clients blocked by default.
+drop policy if exists "Allow public lead inserts" on public.landing_leads;
+
+create policy "Allow public lead inserts"
+  on public.landing_leads
+  for insert
+  to anon, authenticated
+  with check (
+    email is not null
+    and position('@' in email) > 1
+  );
+
+-- Public clients can only insert leads. No select/update/delete policy is
+-- defined, so submitted leads remain unreadable from browser clients.
